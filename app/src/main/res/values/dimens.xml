@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="activity_padding">8dp</dimen>
+  <dimen name="widget_margin">4dp</dimen>
+  <item type="dimen" name="game_guideline" format="float">0.05</item>
+</resources>
