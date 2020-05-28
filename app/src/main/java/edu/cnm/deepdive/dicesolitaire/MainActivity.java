@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import edu.cnm.deepdive.dicesolitaire.model.Roll;
 import java.text.NumberFormat;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     labels = new TextView[maxPairValue - minPairValue + 1];
     counts = new ProgressBar[maxPairValue - minPairValue + 1];
     Resources res = getResources();
+    Random rng = new Random();
     NumberFormat formatter = NumberFormat.getInstance();
     for (int i = minPairValue; i <= maxPairValue; i++) {
       String labelIdString = String.format(LABEL_ID_FORMAT, i);
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
       String countIdString = String.format(COUNT_ID_FORMAT, i);
       int countId = res.getIdentifier(countIdString, "id", getPackageName());
       counts[i - minPairValue] = findViewById(countId);
+      counts[i - minPairValue].setProgress(1 + rng.nextInt(10));
     }
   }
 
